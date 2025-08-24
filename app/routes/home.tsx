@@ -14,17 +14,21 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-	const { auth } = usePuterStore();
-	const navigate = useNavigate();
+	const { auth } = usePuterStore(); // auth state from store
+	const navigate = useNavigate();   // navigation hook
 
+	// redirect to login if not authenticated
 	useEffect(() => {
 		if (!auth.isAuthenticated) navigate('/auth?next=/');
 	}, [auth.isAuthenticated]);
 
 	return (
 		<>
+			{/* background + main layout */}
 			<main className="bg-[url('/images/bg-main.svg')] bg-cover">
 				<Navbar />
+
+				{/* hero section */}
 				<section className="main-section">
 					<div className="page-heading py-16">
 						<h1 className="capitalize">
@@ -34,6 +38,7 @@ export default function Home() {
 					</div>
 				</section>
 
+				{/* resume list section (only if resumes exist) */}
 				{resumes.length > 0 && (
 					<div className="resumes-section">
 						{resumes.map((resume) => (
