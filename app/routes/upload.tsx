@@ -109,7 +109,7 @@ const Upload = () => {
 
 			<section className="main-section">
 				<div className="page-heading py-16">
-					<h1>Smart feedback for your dream job</h1>
+					<h1>Smart feedback for your <br /> dream job</h1>
 
 					{/* show status during processing */}
 					{isProcessing ? (
